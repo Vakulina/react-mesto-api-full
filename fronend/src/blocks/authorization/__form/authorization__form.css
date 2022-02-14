@@ -1,0 +1,9 @@
+.authorization__form{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  min-height: calc(100vh - 119px - 60px - 29px);
+}

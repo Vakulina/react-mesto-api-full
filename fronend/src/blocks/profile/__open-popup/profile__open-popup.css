@@ -1,0 +1,28 @@
+.profile__open-popup {
+  width: 24px;
+  height: 24px;
+  background-image: url('../../../images/open-popup.svg');
+  background-size: 24px 24px;
+  background-position: 50% 50%;
+  border: none;
+  margin-top: 2px;
+  margin-right: 18px;
+  margin-left: 20px;
+  transition-duration: 200ms;
+  transition-property: filter;
+  padding: 0;
+  background-color: transparent;
+}
+.profile__open-popup:hover {
+  filter: opacity(60%);
+  cursor: pointer;
+}
+@media (max-width: 725px) {
+  .profile__open-popup {
+    width: 18px;
+    height: 18px;
+    background-size: 18px 18px;
+    margin-right: 0;
+    margin-left: 8px;
+  }
+}
