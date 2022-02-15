@@ -6,6 +6,7 @@ const errorHandler = require('./middleware/error-handler');
 const NotFoundError = require('./errors/not-found-error');
 const { validatePostUserReq, validateLogin } = require('./middleware/validation-requests');
 const celebrateErrorHandler = require('./middleware/celebtate-error-handler');
+const cors = require('./middleware/cors');
 const {
   requestLogger,
   errorLogger,
@@ -20,6 +21,7 @@ const {
   postUser, login,
 } = require('./controllers/users');
 
+app.use(cors);
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/mestodb', {});
 app.use(requestLogger);
