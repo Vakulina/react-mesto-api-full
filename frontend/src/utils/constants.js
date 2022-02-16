@@ -7,13 +7,13 @@ const config = {
   errorClass: 'popup__error_visible',
 }
 const configConnection = {
-  url: 'http://project-mesto.nomoredomains.work/',
+  url: 'http://project-mesto.nomoredomains.xyz/',
   headers: {
     'Content-Type': 'application/json',
   }
 }
 const authConfigConnection ={
-  url: 'http://project-mesto.nomoredomains.work/',
+  url: 'http://project-mesto.nomoredomains.xyz/',
   headers: {
     'Content-Type': 'application/json'
   }

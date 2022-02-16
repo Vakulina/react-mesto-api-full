@@ -193,16 +193,17 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
       .likeCard(card._id, isLiked)
                 .then((newCard) => {
-            
-                  setCards(state => state.map(currentCard =>
+                   setCards(state => {
+             
+                   return state.map(currentCard =>
                     currentCard._id === card._id ? newCard.data : currentCard
-                  ));
+                  )});
       })
       .catch((err) => {
         console.log(`Ошибка связи с сервером: ${err}`);
