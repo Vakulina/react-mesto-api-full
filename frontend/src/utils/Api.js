@@ -23,7 +23,6 @@ class Api {
 }
   getInitialCards() {
     const url = new URL(path.join('cards'), this._url).href;
-    console.log(url);
      return fetch(url, {
        method: "GET",
        headers: this._setToken(),
