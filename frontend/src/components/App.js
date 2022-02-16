@@ -28,32 +28,6 @@ function App() {
   const [email, setEmail] = React.useState('')
   const [cards, setCards] = React.useState([]);
   const navigation = useNavigate();
-  
-  React.useEffect(() => {
-    function getInitialCards() {
-      api
-        .getInitialCards()
-        .then((res) => {
-          setCards(res.data.reverse());
-        })
-        .catch((err) => console.log(`Ошибка связи с сервером: ${err}`));
-    }
-    getInitialCards();
-  }, []);
-  
-  React.useEffect(() => {
-    function getInfoUser() {
-      api
-        .getInfoUserOfServ()
-        
-        .then((res) => {
-          setUser(res.data);
-        })
-
-        .catch((err) => console.log(`Ошибка связи с сервером: ${err}`));
-    }
-    getInfoUser();
-  }, []);
 
   React.useEffect(() => {
     function checkToken() {
@@ -66,11 +40,39 @@ function App() {
           })
           .catch(err => {
             console.log(`Упс. Что-то пошло не так. Ошибка: ${err}`);
+            setLoggedStatus(false);
           });
       }
     }
     checkToken();
   }, []);
+  React.useEffect(() => {
+    function getInitialCards() {
+      api
+        .getInitialCards()
+        .then((res) => {
+          setCards(res.data.reverse());
+        })
+        .catch((err) => console.log(`Ошибка связи с сервером: ${err}`));
+    }
+    if (loggedIn === true) {getInitialCards();}
+  }, [loggedIn]);
+  
+  React.useEffect(() => {
+    function getInfoUser() {
+      api
+        .getInfoUserOfServ()
+        
+        .then((res) => {
+          setUser(res.data);
+        })
+
+        .catch((err) => console.log(`Ошибка связи с сервером: ${err}`));
+    }
+    if (loggedIn === true) { getInfoUser();}
+  }, [loggedIn]);
+
+
 
   React.useEffect(() => {
     if (loggedIn === true) {
@@ -80,7 +82,7 @@ function App() {
 
   function handleRegisterFormSubmit(data) {
     auth.register(data)
-      .then((res) => {
+        .then((res) => {
         navigation('/login')
         setRequestAuthStatus(true)
       })
@@ -95,6 +97,7 @@ function App() {
   function handleOnAuthorization(data) {
     auth.authorize(data)
       .then((res) => {
+        
         localStorage.setItem('token', res.token)
         setLoggedStatus(true)
         setEmail(data.email)

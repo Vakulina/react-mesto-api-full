@@ -8,7 +8,6 @@ export default function Card({ card, onCardClick, onLikeClick, onCardDelete }) {
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
   const isLiked = card.likes.some(i => i === currentUser._id);
 
-  console.log(card , currentUser._id )
   function handleDeleteClick() {
     onCardDelete(card);
   }
