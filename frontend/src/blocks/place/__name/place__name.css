@@ -1,0 +1,10 @@
+.place__name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  padding-top: 23px;
+  padding-bottom: 18px;
+  padding-left: 21px;
+}

@@ -1,0 +1,12 @@
+.place {
+  position: relative;
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+@media (max-width: 660px) {
+  .place { 
+    margin-top: 20px;
+  }
+}

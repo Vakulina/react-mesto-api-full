@@ -29,7 +29,7 @@ module.exports.postCard = (req, res, next) => {
 };
 
 module.exports.deleteCard = (req, res, next) => {
-  Card.findOne({ _id: req.params.cardId })
+    Card.findOne({ _id: req.params.cardId })
     .orFail(new NotFoundError(`Карточка с указанным id ${req.params.cardId} не найдена`))
     .then((card) => {
       if (!card.owner.equals(req.user._id)) {
@@ -49,6 +49,7 @@ module.exports.deleteCard = (req, res, next) => {
 module.exports.likeCard = (req, res, next) => {
   Card.findByIdAndUpdate(
     req.params.cardId,
+
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )

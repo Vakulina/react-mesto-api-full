@@ -1,0 +1,6 @@
+.header__mail{
+  transition: none;
+}
+.header__mail:hover{
+  opacity: 1;
+}
