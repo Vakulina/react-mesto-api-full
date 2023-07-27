@@ -6,7 +6,7 @@ const allowedCors = [
   'http://62.84.114.33/',
   'https://62.84.114.33/',
   'https://project-mesto.nomoredomains.work/',
-  'http://project-mesto.nomoredomains.work/',
+  'http://6c61267773d1.vps.myjino.ru/',
 ];
 
 const cors = (req, res, next) => {

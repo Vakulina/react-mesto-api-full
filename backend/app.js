@@ -25,19 +25,14 @@ app.use(cors);
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/mestodb', {});
 app.use(requestLogger);
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
 
-app.post('/signin', validateLogin, celebrateErrorHandler, login);
+app.post('/api/signin', validateLogin, celebrateErrorHandler, login);
 
-app.post('/signup', validatePostUserReq, celebrateErrorHandler);
-app.post('/signup', postUser);
+app.post('/api/signup', validatePostUserReq, celebrateErrorHandler);
+app.post('/api/signup', postUser);
 app.use(auth);
-app.use('/users', require('./routes/users'));
-app.use('/cards', require('./routes/cards'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/cards', require('./routes/cards'));
 
 app.use((req, res, next) => {
   next(new NotFoundError('Ресурс не найден'));
