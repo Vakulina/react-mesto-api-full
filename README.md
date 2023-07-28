@@ -34,7 +34,7 @@
 
 ### Проект завершен
 
-#### :link: Деплой - http://6c61267773d1.vps.myjino.ru/
+#### :link: Деплой - https://6c61267773d1.vps.myjino.ru/
 
 
 
